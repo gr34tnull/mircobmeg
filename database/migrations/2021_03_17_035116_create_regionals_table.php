@@ -15,6 +15,15 @@ class CreateRegionalsTable extends Migration
     {
         Schema::create('regionals', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('farm');
+            $table->string('location');
+            $table->string('email')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('fb')->nullable();
+            $table->string('ig')->nullable();
+            $table->string('website')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

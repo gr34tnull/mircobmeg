@@ -90,7 +90,7 @@
             </div>
             <div class="w-auto h-24 text-white transform bg-red-900 rounded-xl hover:scale-105 hover:text-yellow-300">
                 <div class="flex items-center justify-center h-full p-4">
-                    <h1 class="text-sm lg:text-lg">Regional Endorsers</h1>
+                    <a href="{{route('regionals.index')}}"><h1 class="text-sm lg:text-lg">Regional Endorsers</h1></a>
                 </div>
             </div>
         </div>

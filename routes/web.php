@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::prefix('search')->group(function () {
         Route::post('users', 'App\Http\Controllers\UserController@search')->name('users.search');
         Route::post('nationals', 'App\Http\Controllers\NationalController@search')->name('nationals.search');
+        Route::post('regionals', 'App\Http\Controllers\RegionalController@search')->name('regionals.search');
         Route::post('products', 'App\Http\Controllers\ProductController@search')->name('products.search');
         Route::post('showcases', 'App\Http\Controllers\ShowcaseController@search')->name('showcases.search');
     });

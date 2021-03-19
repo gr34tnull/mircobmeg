@@ -12,14 +12,21 @@ class RegionalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Regional $regionals)
     {
-        //
+        $regionals = $regionals->all();
+        return view('endorsers.regionals',compact('regionals'));
     }
 
     public function guests(Regional $regionals)
     {
         return view('guests.regionals');
+    }
+
+    public function search(Request $request)
+    {
+        $regionals = Regional::search($request->get('search'))->get();
+        return view('endorsers.regionals',compact('regionals'));
     }
 
     /**
@@ -40,7 +47,18 @@ class RegionalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $regional = Regional::create($request->except('image'));
+        if($request->has('image')){
+        
+            $imageName = time().'.'.$request->image->extension();  
+         
+            $request->image->move(public_path('regional'), $imageName);
+
+            $regional->image = $imageName;
+            
+            $regional->save();
+        }
+        return back();
     }
 
     /**
@@ -74,7 +92,24 @@ class RegionalController extends Controller
      */
     public function update(Request $request, Regional $regional)
     {
-        //
+        $regional->fill($request->except('image'));
+        $regional->save();
+
+        if($request->has('image')){
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            ]);
+        
+            $imageName = time().'.'.$request->image->extension();  
+         
+            $request->image->move(public_path('regional'), $imageName);
+
+            $regional->image = $imageName;
+
+            $regional->save();
+        }
+        
+        return back();
     }
 
     /**
@@ -85,6 +120,7 @@ class RegionalController extends Controller
      */
     public function destroy(Regional $regional)
     {
-        //
+        $regional->delete();
+        return back();
     }
 }
