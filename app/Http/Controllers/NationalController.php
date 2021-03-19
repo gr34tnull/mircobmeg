@@ -98,6 +98,9 @@ class NationalController extends Controller
      */
     public function update(Request $request, National $national)
     {
+        $national->fill($request->except('image'));
+        $national->save();
+
         if($request->has('image')){
             $request->validate([
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
@@ -108,10 +111,9 @@ class NationalController extends Controller
             $request->image->move(public_path('national'), $imageName);
 
             $national->image = $imageName;
-        }
 
-        $national->fill($request->all());
-        $national->save();
+            $national->save();
+        }
         
         return back();
     }

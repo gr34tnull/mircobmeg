@@ -58,7 +58,7 @@ class NationalVideoController extends Controller
     {
         $national = National::findOrFail($id);
         $videos = NationalVideo::where('national_id', $national->id)->get();
-        return view('videos.show',compact('videos','national'));
+        return view('videos.nationals',compact('videos','national'));
     }
 
     /**

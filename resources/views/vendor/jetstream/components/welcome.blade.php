@@ -32,7 +32,7 @@
     </div>
 
     <div class="p-6 border-t border-gray-200">
-        <a href="">
+        <a href="{{route('products.index')}}">
             <div class="flex items-center transform hover:scale-105">
                 <div class="ml-4 text-lg font-semibold leading-7 text-blue-900 hover:text-yellow-300">
                     <i class="fas fa-shopping-bag"></i> Products

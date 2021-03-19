@@ -15,6 +15,15 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->double('price');
+            $table->text('description');
+            $table->text('usage')->nullable();
+            $table->integer('category')->default(1);
+            $table->text('image')->nullable();
+            $table->string('link')->nullable();
+            $table->string('shopee')->nullable();
+            $table->string('lazada')->nullable();
             $table->timestamps();
         });
     }

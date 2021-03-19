@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductVideo;
+use App\Models\ProductComment;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,9 +14,22 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $products)
     {
-        //
+        $products = $products->all();
+        return view('products.index',compact('products'));
+    }
+
+    public function guests(product $products)
+    {
+        $products = $products->get();
+        return view('guests.products',compact('products'));
+    }
+
+    public function search(Request $request)
+    {
+        $products = Product::search($request->get('search'))->get();
+        return view('products.index',compact('products'));
     }
 
     /**
@@ -35,7 +50,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::create($request->except('image'));
+        if($request->has('image')){
+        
+            $imageName = time().'.'.$request->image->extension();  
+         
+            $request->image->move(public_path('products'), $imageName);
+
+            $product->image = $imageName;
+
+            $product->save();
+            
+        }
+        return back();
     }
 
     /**
@@ -46,7 +73,15 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $videos = ProductVideo::where('product_id', $product->id)->get();
+        $comments = ProductComment::where('product_id', $product->id)->get();
+        return view('products.show',compact('product','videos','comments'));
+    }
+
+    public function category($category)
+    {
+        $products = Product::where('category', $category)->get();
+        return view('products.list', compact('category','products'));
     }
 
     /**
@@ -69,7 +104,26 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->fill($request->except('image'));
+        $product->save();
+
+        if($request->has('image')){ 
+
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            ]);
+         
+            $imageName = time().'.'.$request->image->extension(); 
+
+            $request->image->move(public_path('products'), $imageName);
+
+            $product->image = $imageName;
+
+            $product->save();
+
+        }
+        
+        return back();
     }
 
     /**
@@ -80,6 +134,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return back();
     }
 }

@@ -20,10 +20,13 @@
                         {{ __('Users') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('nationals.index') }}" :active="request()->routeIs('nationals.index')">
-                        {{ __('National Endorsers') }}
+                        {{ __('Nationals') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.index')">
+                        {{ __('Products') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('showcases.index') }}" :active="request()->routeIs('showcases.index')">
-                        {{ __('KMP Showcases') }}
+                        {{ __('KMP') }}
                     </x-jet-nav-link>
                 @else
                     <x-jet-nav-link class="text-xl font-futura stroke-black" href="{{ route('nationals.guests') }}" :active="request()->routeIs('nationals.guests')">
@@ -32,7 +35,7 @@
                     <x-jet-nav-link class="text-xl font-futura stroke-black" href="">
                         {{ __('Regional Endorsers') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link class="text-xl font-futura stroke-black" href="">
+                    <x-jet-nav-link class="text-xl font-futura stroke-black" href="{{ route('products.guests') }}" :active="request()->routeIs('products.guests')">
                         {{ __('Our Products') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link class="text-xl font-futura stroke-black" href="{{ route('showcases.guests') }}" :active="request()->routeIs('showcases.guests')">

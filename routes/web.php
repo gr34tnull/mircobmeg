@@ -25,19 +25,26 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
         'nationals_bloodlines' => 'App\Http\Controllers\NationalBloodlineController',
         'nationals_images' => 'App\Http\Controllers\NationalImageController',
         'nationals_videos' => 'App\Http\Controllers\NationalVideoController',
+        'products' => 'App\Http\Controllers\ProductController',
+        'products_videos' => 'App\Http\Controllers\ProductVideoController',
+        'products_comments' => 'App\Http\Controllers\ProductCommentsController',
         'showcases' => 'App\Http\Controllers\ShowcaseController',
     ]);
     
     Route::prefix('search')->group(function () {
         Route::post('users', 'App\Http\Controllers\UserController@search')->name('users.search');
         Route::post('nationals', 'App\Http\Controllers\NationalController@search')->name('nationals.search');
+        Route::post('products', 'App\Http\Controllers\ProductController@search')->name('products.search');
         Route::post('showcases', 'App\Http\Controllers\ShowcaseController@search')->name('showcases.search');
     });
 
     Route::prefix('guests')->group(function () {
         Route::get('/nationals', 'App\Http\Controllers\NationalController@guests')->name('nationals.guests');
+        Route::get('/products', 'App\Http\Controllers\ProductController@guests')->name('products.guests');
         Route::get('/showcases', 'App\Http\Controllers\ShowcaseController@guests')->name('showcases.guests');
     });
+
+    Route::get('/category/{category}', 'App\Http\Controllers\ProductController@category')->name('products.list');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
