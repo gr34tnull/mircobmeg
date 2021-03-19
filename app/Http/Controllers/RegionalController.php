@@ -17,6 +17,11 @@ class RegionalController extends Controller
         //
     }
 
+    public function guests(Regional $regionals)
+    {
+        return view('guests.regionals');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

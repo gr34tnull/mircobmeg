@@ -44,6 +44,16 @@
                     <div class="inline-block w-full pt-6">
                         <h1 class="text-4xl font-bold text-left text-blue-900 uppercase font-futura">REVIEWS</h1>
                     </div>
+                    <div class="grid grid-cols-1 gap-2 p-2 overflow-y-auto no-scrollbar">
+                        @foreach($comments as $comment)
+                        <div class="w-full border border-red-900 rounded">
+                            <div class="p-4">
+                                <h1 class="text-sm font-bold uppercase">{{$comment->name}}</h1>
+                                <p class="text-xs">{{$comment->comment}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

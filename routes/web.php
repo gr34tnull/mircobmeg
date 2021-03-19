@@ -27,8 +27,9 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
         'nationals_videos' => 'App\Http\Controllers\NationalVideoController',
         'products' => 'App\Http\Controllers\ProductController',
         'products_videos' => 'App\Http\Controllers\ProductVideoController',
-        'products_comments' => 'App\Http\Controllers\ProductCommentsController',
+        'products_comments' => 'App\Http\Controllers\ProductCommentController',
         'showcases' => 'App\Http\Controllers\ShowcaseController',
+        'regionals' => 'App\Http\Controllers\RegionalController',
     ]);
     
     Route::prefix('search')->group(function () {
@@ -40,6 +41,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
 
     Route::prefix('guests')->group(function () {
         Route::get('/nationals', 'App\Http\Controllers\NationalController@guests')->name('nationals.guests');
+        Route::get('/regionals', 'App\Http\Controllers\RegionalController@guests')->name('regionals.guests');
         Route::get('/products', 'App\Http\Controllers\ProductController@guests')->name('products.guests');
         Route::get('/showcases', 'App\Http\Controllers\ShowcaseController@guests')->name('showcases.guests');
     });

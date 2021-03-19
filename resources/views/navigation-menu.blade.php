@@ -22,6 +22,9 @@
                     <x-jet-nav-link href="{{ route('nationals.index') }}" :active="request()->routeIs('nationals.index')">
                         {{ __('Nationals') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('regionals.index') }}" :active="request()->routeIs('regionals.index')">
+                        {{ __('Regionals') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.index')">
                         {{ __('Products') }}
                     </x-jet-nav-link>
@@ -32,7 +35,7 @@
                     <x-jet-nav-link class="text-xl font-futura stroke-black" href="{{ route('nationals.guests') }}" :active="request()->routeIs('nationals.guests')">
                         {{ __('National Endorsers') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link class="text-xl font-futura stroke-black" href="">
+                    <x-jet-nav-link class="text-xl font-futura stroke-black" href="{{ route('regionals.guests') }}" :active="request()->routeIs('regionals.guests')">
                         {{ __('Regional Endorsers') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link class="text-xl font-futura stroke-black" href="{{ route('products.guests') }}" :active="request()->routeIs('products.guests')">

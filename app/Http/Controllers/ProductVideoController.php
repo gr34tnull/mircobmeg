@@ -90,7 +90,7 @@ class ProductVideoController extends Controller
      * @param  \App\Models\ProductVideo  $productVideo
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id,ProductVideo $productVideo)
+    public function destroy($id)
     {
         ProductVideo::findOrFail($id)->destroy($id);
         return back();

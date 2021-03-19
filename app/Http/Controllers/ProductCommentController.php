@@ -35,7 +35,8 @@ class ProductCommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProductComment::create($request->all());
+        return back();
     }
 
     /**
@@ -78,8 +79,9 @@ class ProductCommentController extends Controller
      * @param  \App\Models\ProductComment  $productComment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductComment $productComment)
+    public function destroy($id)
     {
-        //
+        ProductComment::findOrFail($id)->destroy($id);
+        return back();
     }
 }

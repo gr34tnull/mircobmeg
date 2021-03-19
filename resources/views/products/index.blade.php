@@ -270,7 +270,12 @@
                                                             @foreach($product->reviews as $comment)
                                                             <div class="flex flex-row justify-between px-10 py-2 bg-gray-50">
                                                                 <dt class="justify-start mt-1 text-xs font-medium text-gray-500 uppercase">
-                                                                {{$comment->title}}
+                                                                    <div class="text-sm font-medium text-gray-900">
+                                                                        {{$comment->name}}
+                                                                    </div>
+                                                                    <div class="text-xs text-gray-500">
+                                                                        {{$comment->comment}}
+                                                                    </div>
                                                                 </dt>
                                                                 <dt class="justify-end mt-1 text-xs font-medium text-gray-500">
                                                                     <form method="POST" action="{{route('products_comments.destroy',$product->id)}}">
@@ -288,17 +293,17 @@
                                                             @csrf
                                                             <input type="hidden" name="product_id" value="{{$product->id}}">
                                                             <dl class="flex flex-col">
-                                                                <div class="flex flex-row justify-between w-full px-4 py-2 bg-gray-50">
-                                                                    <dt class="flex flex-row justify-start w-full mt-1 text-xs font-medium text-gray-500 uppercase">
+                                                                <div class="flex flex-col justify-between w-full px-4 py-2 bg-white">
+                                                                    <dt class="flex flex-col justify-start w-full mt-1 space-y-2 text-xs font-medium text-gray-500 uppercase">
                                                                     <x-jet-input id="name" class="block w-full" type="text" name="name" placeholder="Name" autofocus />
-                                                                    <x-jet-input id="title" class="block w-full" type="text" name="title" placeholder="Enter Feedback" autofocus />
+                                                                    <x-jet-input id="comment" class="block w-full" type="text" name="comment" placeholder="Enter Feedback" autofocus />
+                                                                    </dt>
+                                                                </div>
+                                                                <div class="flex flex-row justify-end w-full px-4 py-2 bg-gray-50">
+                                                                    <dt class="flex flex-row justify-start w-full mt-1 text-xs font-medium text-gray-500 uppercase">
                                                                     <button type="submit" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-gray-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:ml-3 sm:w-auto sm:text-sm">
                                                                         Create
                                                                     </button>
-                                                                    </dt>
-                                                                </div>
-                                                                <div class="flex flex-row justify-end w-full px-4 py-2 bg-white">
-                                                                    <dt class="flex flex-row justify-start w-full mt-1 text-xs font-medium text-gray-500 uppercase">
                                                                     <button type="button" class="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="toggleElement('comments{{$product->id}}')">
                                                                         Close
                                                                     </button>
@@ -306,9 +311,6 @@
                                                                 </div>
                                                             </dl>
                                                         </form>
-                                                    </div>
-                                                    <div class="px-4 py-3 bg-gray-50 sm:justify-end sm:px-8 sm:flex">
-                                                        
                                                     </div>
                                                 </div>
                                                 
