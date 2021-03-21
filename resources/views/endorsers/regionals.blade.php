@@ -158,7 +158,7 @@
                                                                 <x-jet-input id="name" class="block w-full" type="text" name="name" value="{{$regional->name}}" required autofocus />
                                                             </dd>
                                                         </div>
-                                                        <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                        <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                             <dt class="mt-3 text-sm font-medium text-gray-500">
                                                             Farm Name
                                                             </dt>
@@ -166,7 +166,7 @@
                                                                 <x-jet-input id="farm" class="block w-full" type="text" name="farm" value="{{$regional->farm}}" required autofocus />
                                                             </dd>
                                                         </div>
-                                                        <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                        <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                             <dt class="mt-3 text-sm font-medium text-gray-500">
                                                             Location
                                                             </dt>
@@ -174,7 +174,7 @@
                                                                 <x-jet-input id="location" class="block w-full" type="text" name="location" value="{{$regional->location}}" required autofocus />
                                                             </dd>
                                                         </div>
-                                                        <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                        <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                             <dt class="mt-3 text-sm font-medium text-gray-500">
                                                             Email Address
                                                             </dt>
@@ -182,7 +182,7 @@
                                                                 <x-jet-input id="email" class="block w-full" type="email" name="email" value="{{$regional->email}}" autofocus />
                                                             </dd>
                                                         </div>
-                                                        <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                        <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                             <dt class="mt-3 text-sm font-medium text-gray-500">
                                                             Contact Number
                                                             </dt>
@@ -190,7 +190,7 @@
                                                                 <x-jet-input id="contact" class="block w-full" type="text" name="contact" value="{{$regional->contact}}" autofocus />
                                                             </dd>
                                                         </div>
-                                                        <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                        <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                             <dt class="mt-3 text-sm font-medium text-gray-500">
                                                             Facebook
                                                             </dt>
@@ -198,7 +198,7 @@
                                                                 <x-jet-input id="fb" class="block w-full" type="text" name="fb" value="{{$regional->fb}}" autofocus />
                                                             </dd>
                                                         </div>
-                                                        <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                        <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                             <dt class="mt-3 text-sm font-medium text-gray-500">
                                                             Instragram
                                                             </dt>
@@ -206,7 +206,7 @@
                                                                 <x-jet-input id="ig" class="block w-full" type="text" name="ig" value="{{$regional->ig}}" autofocus />
                                                             </dd>
                                                         </div>
-                                                        <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                        <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                             <dt class="mt-3 text-sm font-medium text-gray-500">
                                                             Website
                                                             </dt>
@@ -214,7 +214,7 @@
                                                                 <x-jet-input id="website" class="block w-full" type="text" name="website" value="{{$regional->website}}" autofocus />
                                                             </dd>
                                                         </div>
-                                                        <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                        <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                             <dt class="mt-3 text-sm font-medium text-gray-500">
                                                             Profile Image
                                                             </dt>
@@ -226,7 +226,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="px-4 py-2 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
+                                                <div class="px-4 py-2 bg-white sm:px-6 sm:flex sm:flex-row-reverse">
                                                     <button type="submit" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-gray-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:ml-3 sm:w-auto sm:text-sm">
                                                     Update
                                                     </button>

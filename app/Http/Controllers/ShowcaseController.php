@@ -20,8 +20,9 @@ class ShowcaseController extends Controller
 
     public function guests(Showcase $showcases)
     {
-        $showcases = $showcases->orderBy('created_at', 'desc')->simplePaginate(3);
-        return view('guests.showcases',compact('showcases'));
+        $feature = $showcases->where('archive',false)->orderBy('created_at', 'desc')->first();
+        $showcases = $showcases->where('archive',false)->orderBy('created_at', 'desc')->simplePaginate(6);
+        return view('guests.showcases',compact('feature','showcases'));
     }
 
     public function search(Request $request)
@@ -71,7 +72,7 @@ class ShowcaseController extends Controller
     public function show($id,Showcase $showcases)
     {
         $feature = Showcase::findOrfail($id);
-        $showcases = $showcases->orderBy('created_at', 'desc')->simplePaginate(3);
+        $showcases = $showcases->orderBy('created_at', 'desc')->simplePaginate(6);
         return view('showcases.show',compact('feature','showcases'));
     }
 

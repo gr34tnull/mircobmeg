@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Regional;
+use App\Models\RegionalLocation;
 use Illuminate\Http\Request;
 
 class RegionalController extends Controller

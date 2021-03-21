@@ -13,4 +13,9 @@ class Regional extends Model
 
     protected $guarded = [];
     protected $table = 'regionals';
+
+    public function rlocation()
+    {
+        return $this->belongsTo(RegionalLocation::class);
+    }
 }

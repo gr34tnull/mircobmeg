@@ -1,5 +1,5 @@
 <x-app-layout>
-<div class="fixed flex items-center w-screen h-screen overflow-y-auto bg-transparent no-scrollbar">
+<div class="fixed flex items-center w-screen h-screen py-20 overflow-y-auto bg-transparent no-scrollbar">
     <div class="w-screen max-w-6xl p-10 mx-auto my-20 overflow-y-auto text-gray-800 bg-white rounded shadow-xl lg:p-20 md:text-left no-scrollbar">
         
         <div class="flex flex-col items-center overflow-y-auto min-w-screen no-scrollbar h-96">
@@ -11,14 +11,14 @@
                 </div>
                 <div class="w-full px-10 md:w-1/2">
                     <div class="mb-10">
-                        <h1 class="mb-2 text-4xl font-extrabold text-blue-900 uppercase lg:text-6xl font-futura">{{$product->name}}</h1>
+                        <h1 class="mb-2 text-2xl font-extrabold text-blue-900 uppercase lg:text-4xl font-futura">{{$product->name}}</h1>
                         <p class="text-sm">{{$product->description}}</p>
                         <p class="pt-2 text-sm">{{$product->usage}}</p>
                     </div>
                     <div class="flex flex-col items-center justify-center space-x-1 space-y-2">
                         <a href="{{$product->shopee}}" target="_blank" class="w-full px-6 py-2 text-xs font-semibold text-gray-900 bg-yellow-500 opacity-75 rounded-xl hover:opacity-100 hover:text-gray-900 {{is_null($product->shopee) ? 'hidden' : ''}}"><i class="fas fa-shopping-bag"></i> SHOPEE</a>
                         <a href="{{$product->lazada}}" target="_blank" class="w-full px-6 py-2 text-xs font-semibold text-white bg-blue-900 opacity-75 rounded-xl hover:opacity-100 hover:text-white {{is_null($product->lazada) ? 'hidden' : ''}}"><i class="fas fa-briefcase"></i> LAZADA</a>
-                        <a href="{{$product->link}}" target="_blank" class="w-full px-6 py-2 text-xs font-semibold text-white bg-red-900 opacity-75 rounded-xl hover:opacity-100 hover:text-white {{is_null($product->link) ? 'hidden' : ''}}"><i class="fas fa-user"></i> LOCAL DISTRIBUTOR</a>
+                        <a href="{{$product->link}}" target="_blank" class="w-full px-6 py-2 text-xs font-semibold text-white bg-red-900 opacity-75 rounded-xl hover:opacity-100 hover:text-white {{is_null($product->link) || $product->category != 5 ? 'hidden' : ''}}"><i class="fas fa-user"></i> LOCAL DISTRIBUTOR</a>
                     </div>
                 </div>
             </div>
@@ -59,5 +59,10 @@
         </div>
 
     </div>
+</div>
+<div class="fixed bottom-0 right-0 z-10 flex items-center justify-center mb-10 mr-4 lg:mr-10">
+    <a href="{{url()->previous()}}" class="hidden p-2 text-gray-600 bg-white border shadow-md cursor-pointer md:block rounded-xl focus:outline-none">
+        <i class="text-xs fas fa-arrow-left"> GO BACK</i>
+    </a>
 </div>
 </x-app-layout>

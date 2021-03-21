@@ -78,8 +78,9 @@ class NationalImageController extends Controller
      * @param  \App\Models\NationalImage  $nationalImage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NationalImage $nationalImage)
+    public function destroy($id)
     {
-        //
+        NationalImage::findOrFail($id)->destroy($id);
+        return back();
     }
 }

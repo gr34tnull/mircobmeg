@@ -95,9 +95,34 @@ class NationalBloodlineController extends Controller
      * @param  \App\Models\NationalBloodline  $nationalBloodline
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NationalBloodline $nationalBloodline)
+    public function update($id,Request $request)
     {
-        //
+        $bloodline = NationalBloodline::findOrFail($id);
+
+        $bloodline->fill($request->except('file'));
+
+        if($request->has('file')){
+            foreach($request->file('file') as $image)
+            {
+                $imageName = $bloodline->id.'_'.time().'.'.$image->extension();  
+            
+                $image->move(public_path('bloodlines'), $imageName);
+
+                $fileNames[] = $imageName;
+            }
+
+            foreach($fileNames as $image)
+            {
+                NationalImage::create([
+                    'bloodline_id' => $bloodline->id,
+                    'image' => $image,
+                ]);
+            }
+        }
+
+        $bloodline->save();
+
+        return back();
     }
 
     /**

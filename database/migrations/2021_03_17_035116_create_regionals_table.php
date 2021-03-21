@@ -15,6 +15,7 @@ class CreateRegionalsTable extends Migration
     {
         Schema::create('regionals', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('rl_id');
             $table->string('name');
             $table->string('farm');
             $table->string('location');
@@ -25,6 +26,7 @@ class CreateRegionalsTable extends Migration
             $table->string('website')->nullable();
             $table->text('image')->nullable();
             $table->timestamps();
+            $table->foreign('rl_id')->references('id')->on('regional_locations')->onDelete('cascade');
         });
     }
 

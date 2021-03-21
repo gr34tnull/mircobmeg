@@ -2,7 +2,7 @@
 <div class="flex items-center justify-center w-screen h-screen mx-20">
     <div class="w-full lg:w-1/3">
         <div class="flex flex-col items-center justify-start space-y-2">
-            <button class="w-40 p-4 bg-yellow-300 rounded">MANILA</button>
+            <button class="w-40 p-2 text-xs text-white bg-red-900 rounded focus:outline-none hover:text-yellow-300 font-futura">MANILA</button>
         </div>
     </div>
     <div class="flex items-center w-full lg:w-2/3">
@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="flex flex-col items-center justify-center">
-                    <h2 class="mt-2 font-bold text-blue-900 uppercase text-md">NAME</h2>
+                    <h2 class="mt-2 font-bold text-blue-900 uppercase text-md font-futura">NAME</h2>
                     <h6 class="text-sm font-medium">FARM</h6>
                 </div>
 

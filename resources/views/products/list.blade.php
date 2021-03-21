@@ -34,5 +34,9 @@
 
     </div>
 </div>
-
+<div class="fixed bottom-0 right-0 z-10 flex items-center justify-center mb-10 mr-4 lg:mr-10">
+    <a href="{{url()->previous()}}" class="hidden p-2 text-gray-600 bg-white border shadow-md cursor-pointer md:block rounded-xl focus:outline-none">
+        <i class="text-xs fas fa-arrow-left"> GO BACK</i>
+    </a>
+</div>
 </x-app-layout>
