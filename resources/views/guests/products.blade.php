@@ -1,5 +1,5 @@
 <x-app-layout>
-<div class="flex flex-col items-center content-center justify-center w-full h-full py-10 m-auto lg:py-20 xl:py-32">
+<div class="flex flex-col items-center content-center justify-center w-full h-full py-10 m-auto xl:py-20">
 
     <div class="flex flex-col items-center justify-center py-6">
         <a href="{{ auth()->check() ? route('dashboard') : url('/') }}">

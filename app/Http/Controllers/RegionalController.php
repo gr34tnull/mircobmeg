@@ -16,12 +16,15 @@ class RegionalController extends Controller
     public function index(Regional $regionals)
     {
         $regionals = $regionals->all();
-        return view('endorsers.regionals',compact('regionals'));
+        $rlocations = RegionalLocation::all();
+        return view('endorsers.regionals',compact('regionals','rlocations'));
     }
 
     public function guests(Regional $regionals)
     {
-        return view('guests.regionals');
+        $regionals = $regionals->all();
+        $rlocations = RegionalLocation::all();
+        return view('guests.regionals',compact('regionals','rlocations'));
     }
 
     public function search(Request $request)
@@ -68,9 +71,11 @@ class RegionalController extends Controller
      * @param  \App\Models\Regional  $regional
      * @return \Illuminate\Http\Response
      */
-    public function show(Regional $regional)
+    public function show($id)
     {
-        //
+        $regionals = Regional::where('rl_id', $id)->get();
+        $rlocations = RegionalLocation::all();
+        return view('regionals.show',compact('id','regionals','rlocations'));
     }
 
     /**

@@ -8,7 +8,7 @@
                 @endif
             </div>
             <div class="w-full">
-            @if($showcases->hasPages())
+            @if($showcases->count() > 1)
                 <div class="flex flex-row items-center justify-between space-x-2">
                     <a href="{{$showcases->previousPageUrl()}}" class="p-1 px-2 text-center bg-white rounded-full hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:shadow-outline {{$showcases->onFirstPage() ? 'disabled text-red-900' : 'text-blue-900'}}">
                         <i class="fas fa-arrow-left"></i>
@@ -37,7 +37,7 @@
                 </a>
             @endforeach
             </div>
-            @if($showcases->hasPages())
+            @if($showcases->count() > 1)
             <div class="flex flex-row items-center justify-between w-full px-6 pb-6">
                 <a href="{{$showcases->previousPageUrl()}}" class="py-2 px-6 text-center bg-white rounded-full hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:shadow-outline {{$showcases->onFirstPage() ? 'disabled text-red-900' : 'text-blue-900'}}">
                     <i class="fas fa-arrow-left"></i> Previous

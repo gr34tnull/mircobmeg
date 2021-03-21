@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
         'products_comments' => 'App\Http\Controllers\ProductCommentController',
         'showcases' => 'App\Http\Controllers\ShowcaseController',
         'regionals' => 'App\Http\Controllers\RegionalController',
+        'regionals_locations' => 'App\Http\Controllers\RegionalLocationController',
     ]);
     
     Route::prefix('search')->group(function () {

@@ -15,6 +15,10 @@
                     <i class="fas fa-users"></i>
                     <span class="mx-3">Regional Endorsers</span>
                 </a>
+                <button class="flex items-center px-6 py-2 mt-4 text-gray-100 focus:outline-none" onclick="toggleElement('createRegion')">
+                    <i class="fas fa-plus"></i>
+                    <span class="mx-3">Add Regional Location</span>
+                </button>
                 <button class="flex items-center px-6 py-2 mt-4 text-gray-100 focus:outline-none" onclick="toggleElement('createEndorser')">
                     <i class="fas fa-plus"></i>
                     <span class="mx-3">Create Endorser</span>
@@ -139,7 +143,7 @@
                                                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
                                                 <div class="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                                                 
-                                                <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+                                                <div class="overflow-hidden shadow bg-gray-50 sm:rounded-lg">
                                                     <div class="px-4 py-2 sm:px-6">
                                                         <h3 class="text-lg font-medium leading-6 text-gray-900">
                                                         Endorser's Information
@@ -150,6 +154,18 @@
                                                     </div>
                                                     <div class="border-t border-gray-200">
                                                         <dl>
+                                                        <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                            <dt class="mt-3 text-sm font-medium text-gray-500">
+                                                            Regional Location
+                                                            </dt>
+                                                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                                                <select id="rl_id" name="rl_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
+                                                                    @foreach($rlocations as $rl)
+                                                                    <option id="rl_id" name="rl_id" value="{{$rl->id}}" {{ $regional->rl_id == $rl->id ? ' selected' : '' }}>{{$rl->name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </dd>
+                                                        </div>
                                                         <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                             <dt class="mt-3 text-sm font-medium text-gray-500">
                                                             Name
@@ -260,7 +276,7 @@
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
             <div class="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
             
-            <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+            <div class="overflow-hidden shadow bg-gray-50 sm:rounded-lg">
                 <div class="px-4 py-2 sm:px-6">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">
                     Create Endorser
@@ -271,6 +287,18 @@
                 </div>
                 <div class="border-t border-gray-200">
                     <dl>
+                    <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="mt-3 text-sm font-medium text-gray-500">
+                        Regional Location
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <select id="rl_id" name="rl_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
+                                @foreach($rlocations as $rl)
+                                <option id="rl_id" name="rl_id" value="{{$rl->id}}">{{$rl->name}}</option>
+                                @endforeach
+                            </select>
+                        </dd>
+                    </div>
                     <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="mt-3 text-sm font-medium text-gray-500">
                         Name
@@ -352,6 +380,49 @@
                 Create
                 </button>
                 <button type="button" class="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="toggleElement('createEndorser')">
+                Close
+                </button>
+            </div>
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <div id="createRegion" class="fixed inset-0 z-30 hidden overflow-y-auto">
+        <form method="POST" action="{{route('regionals_locations.store')}}">
+        @csrf
+        <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+            
+            <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+                <div class="px-4 py-2 sm:px-6">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">
+                    Create Regional Location
+                    </h3>
+                </div>
+                <div class="border-t border-gray-200">
+                    <dl>
+                    <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="mt-3 text-sm font-medium text-gray-500">
+                        Name
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <x-jet-input id="name" class="block w-full" type="text" name="name" required autofocus />
+                        </dd>
+                    </div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="px-4 py-2 bg-white sm:px-6 sm:flex sm:flex-row-reverse">
+                <button type="submit" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-gray-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:ml-3 sm:w-auto sm:text-sm">
+                Create
+                </button>
+                <button type="button" class="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="toggleElement('createRegion')">
                 Close
                 </button>
             </div>

@@ -35,7 +35,8 @@ class RegionalLocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        RegionalLocation::create($request->all());
+        return back();
     }
 
     /**

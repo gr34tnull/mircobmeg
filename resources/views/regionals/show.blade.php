@@ -26,7 +26,7 @@
                         <div class="grid grid-cols-1 gap-2 pt-2 text-center">
                             <select id="rl_id" name="rl_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" onchange="location.replace('{{url('regionals').'/'}}'+this.value)" >
                                 @foreach($rlocations as $rl)
-                                <option id="rl_id" name="rl_id" value="{{$rl->id}}">{{$rl->name}}</option>
+                                <option id="rl_id" name="rl_id" value="{{$rl->id}}" {{ $rl->id == $id ? 'selected' : '' }}>{{$rl->name}}</option>
                                 @endforeach
                             </select>
                         </div>
