@@ -115,7 +115,7 @@ class NationalController extends Controller
             $national->save();
         }
         
-        return back();
+        return redirect('/nationals');
     }
 
     /**

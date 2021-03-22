@@ -102,7 +102,7 @@ class ShowcaseController extends Controller
 
         $showcase->save();
 
-        return back();
+        return redirect('/showcases');;
     }
 
     /**

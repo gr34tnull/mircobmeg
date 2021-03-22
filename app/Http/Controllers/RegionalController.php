@@ -115,7 +115,7 @@ class RegionalController extends Controller
             $regional->save();
         }
         
-        return back();
+        return redirect('/regionals');;
     }
 
     /**

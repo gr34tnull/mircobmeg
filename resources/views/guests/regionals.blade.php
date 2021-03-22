@@ -36,7 +36,7 @@
                     <div class="flex items-center justify-center">
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                             @foreach($regionals as $regional)
-                            <div class="flex flex-row items-center justify-start p-6 space-x-10 transform bg-gray-100 shadow rounded-xl hover:scale-105">
+                            <div class="flex flex-row items-center justify-start p-6 space-x-10 bg-gray-100 shadow rounded-xl">
                                 <div class="inline-flex w-40 h-40 overflow-hidden">
                                         <img src="{{is_null($regional->image) ? asset('endorser.png') : asset('/regional/'.$regional->image)}}" class="z-20 w-full h-full shadow-xl">
                                 </div>

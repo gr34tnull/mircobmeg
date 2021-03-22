@@ -69,12 +69,12 @@
 
                                             <div class="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                                             <div class="bg-white">
-                                                <div class="sm:flex sm:items-center">
-                                                <div class="mt-3 text-center">
-                                                    <p class="py-2 font-extrabold text-center text-gray-900 uppercase text-md">{{$image->bloodline->title}}</p>
-                                                    <img class="w-full h-64 px-2" src="{{asset('/bloodlines/'.$image->image)}}">
-                                                    <small class="py-4 text-sm text-center uppercase">{{$image->bloodline->description}}</small>
-                                                </div>
+                                                <div class="flex items-center justify-center">
+                                                    <div class="mt-3 text-center">
+                                                        <p class="py-2 text-xl font-extrabold text-center text-gray-900 uppercase">{{$image->bloodline->title}}</p>
+                                                        <img class="my-2 border border-gray-900 w-96 h-96" src="{{asset('/bloodlines/'.$image->image)}}">
+                                                        <small class="py-4 text-sm text-center uppercase">{{$image->bloodline->description}}</small>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">

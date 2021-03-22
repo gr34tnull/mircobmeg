@@ -36,7 +36,7 @@ class ProductCommentController extends Controller
     public function store(Request $request)
     {
         ProductComment::create($request->all());
-        return back();
+        return redirect('/products');
     }
 
     /**
