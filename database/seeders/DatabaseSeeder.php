@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(NationalAchievementSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(RLSeeder::class);
+        $this->call(BloodlineSeeder::class);
     }
 }
