@@ -24,6 +24,7 @@ class ProductImport implements ToModel, WithHeadingRow
             'shopee' => is_null($row['shopee']) ? null : $row['shopee'],
             'description' => $row['description'],
             'usage' => is_null($row['usage']) ? null : $row['usage'],
+            'image' => is_null($row['image']) ? null : $row['image'],
         ]);
     }
 }

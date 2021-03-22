@@ -14,7 +14,7 @@
             <div class="w-full">
                 <a href="{{route('products.show',$product->id)}}" class="focus:outline-none">
                     <div class="flex flex-col items-center justify-center p-4 transition duration-300 ease-in-out delay-150 transform bg-red-900 border-4 border-yellow-200 rounded-lg shadow hover:scale-105" onmouseover="toggleElement('desc{{$product->id}}')" onmouseout="toggleElement('desc{{$product->id}}')">
-                        <div class="inline-flex w-48 h-48 overflow-hidden">
+                        <div class="inline-flex overflow-hidden w-44 h-44">
                             <img src="{{is_null($product->image) ? asset('product.png') : asset('/products/'.$product->image)}}" class="w-full h-full">
                         </div>
                     </div>

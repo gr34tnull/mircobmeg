@@ -37,27 +37,25 @@ class NationalBloodlineController extends Controller
      */
     public function store(Request $request)
     {
-        $bloodline = NationalBloodline::create([
-            'national_id' => $request->national_id,
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
+        $bloodline = NationalBloodline::create($request->except('file'));
 
-        foreach($request->file('file') as $image)
-        {
-            $imageName = $bloodline->id.'_'.time().'.'.$image->getClientOriginalName();  
-         
-            $image->move(public_path('bloodlines'), $imageName);
+        if($request->hasFile('file')){
+            foreach($request->file('file') as $image)
+            {
+                $imageName = $bloodline->id.'_'.time().'.'.$image->extension();  
+            
+                $image->move(public_path('bloodlines'), $imageName);
 
-            $fileNames[] = $imageName;
-        }
+                $fileNames[] = $imageName;
+            }
 
-        foreach($fileNames as $image)
-        {
-            NationalImage::create([
-                'bloodline_id' => $bloodline->id,
-                'image' => $image,
-            ]);
+            foreach($fileNames as $image)
+            {
+                NationalImage::create([
+                    'bloodline_id' => $bloodline->id,
+                    'image' => $image,
+                ]);
+            }
         }
 
         return back();
@@ -101,7 +99,7 @@ class NationalBloodlineController extends Controller
 
         $bloodline->fill($request->except('file'));
 
-        if($request->has('file')){
+        if($request->hasFile('file')){
             foreach($request->file('file') as $image)
             {
                 $imageName = $bloodline->id.'_'.time().'.'.$image->extension();  

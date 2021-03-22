@@ -93,12 +93,7 @@
                                     Images
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        <div class="flex w-full text-sm text-gray-600">
-                                            <label for="images" class="w-full px-3 py-2 text-sm font-medium leading-4 text-center text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                            <span>Add Images</span>
-                                            <input id="images" name="file[]" type="file" class="sr-only" accept="image/*" multiple="multiple">
-                                            </label>
-                                        <div>
+                                        <input id="image" name="file[]" type="file" class="items-center block w-full px-4 py-2 mt-2 mr-2 text-xs font-semibold tracking-widest text-center text-gray-700 uppercase transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50" accept="image/*" multiple="multiple">
                                     </dd>
                                 </div>
                                 <div class="px-4 py-2 bg-white sm:px-6">
@@ -176,12 +171,7 @@
                     Images
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <div class="flex w-full text-sm text-gray-600">
-                            <label for="images" class="w-full px-3 py-2 text-sm font-medium leading-4 text-center text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            <span>Upload Images</span>
-                            <input id="images" name="file[]" type="file" class="sr-only" accept="image/*" multiple="multiple">
-                            </label>
-                        <div>
+                        <input id="image" name="file[]" type="file" class="items-center block w-full px-4 py-2 mt-2 mr-2 text-xs font-semibold tracking-widest text-center text-gray-700 uppercase transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50" accept="image/*" multiple="multiple">
                     </dd>
                 </div>
                 </dl>
