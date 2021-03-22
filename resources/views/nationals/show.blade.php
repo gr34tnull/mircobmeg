@@ -55,7 +55,7 @@
                                     @foreach(App\Models\NationalImage::where('bloodline_id',$bloodline->id)->get() as $image)
                                     <div class="w-full text-center">
                                         <button type="button" onclick="toggleElement('imageZoom{{$image->id}}')">
-                                            <img class="block object-center w-full h-40 transform rounded-xl hover:scale-105" src="{{asset('/bloodlines/'.$image->image)}}">
+                                            <img class="block object-center w-full h-40 transform focus:outline-none hover:scale-105" src="{{asset('/bloodlines/'.$image->image)}}">
                                         </button>
                                     </div>
                                     <div id="imageZoom{{$image->id}}" class="fixed inset-0 z-10 hidden overflow-y-auto">
