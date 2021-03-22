@@ -29,7 +29,7 @@ class BloodlineSeeder extends Seeder
 
         NationalBloodline::create([
             'national_id' => '9',
-            'title' => 'Gilmore Hatch',
+            'title' => 'GILMORE HATCH',
             'description' => 'This is the Gilmore Hatch Bloodline',
         ]);
 
