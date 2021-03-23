@@ -37,11 +37,12 @@ class NationalBloodlineController extends Controller
      */
     public function store(Request $request)
     {
+        $i = 0;
         $bloodline = NationalBloodline::create($request->except('file'));
 
         foreach($request->file('file') as $image)
         {
-            $imageName = $bloodline->id.'_'.time().'.'.$image->extension();  
+            $imageName = $bloodline->id.'_'.time().'_'.$i++.'.'.$image->extension();  
         
             $image->move(public_path('bloodlines'), $imageName);
 
@@ -93,6 +94,7 @@ class NationalBloodlineController extends Controller
      */
     public function update($id,Request $request)
     {
+        $i = 0;
         $bloodline = NationalBloodline::findOrFail($id);
 
         $bloodline->fill($request->except('file'));
@@ -100,7 +102,7 @@ class NationalBloodlineController extends Controller
 
         foreach($request->file('file') as $image)
         {
-            $imageName = $bloodline->id.'_'.time().'.'.$image->extension();  
+            $imageName = $bloodline->id.'_'.time().'_'.$i++.'.'.$image->extension();  
         
             $image->move(public_path('bloodlines'), $imageName);
 
