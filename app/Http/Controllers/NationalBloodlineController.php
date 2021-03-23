@@ -39,23 +39,21 @@ class NationalBloodlineController extends Controller
     {
         $bloodline = NationalBloodline::create($request->except('file'));
 
-        if($request->hasFile('file')){
-            foreach($request->file('file') as $image)
-            {
-                $imageName = $bloodline->id.'_'.time().'.'.$image->extension();  
-            
-                $image->move(public_path('bloodlines'), $imageName);
+        foreach($request->file('file') as $image)
+        {
+            $imageName = $bloodline->id.'_'.time().'.'.$image->extension();  
+        
+            $image->move(public_path('bloodlines'), $imageName);
 
-                $fileNames[] = $imageName;
-            }
+            $fileNames[] = $imageName;
+        }
 
-            foreach($fileNames as $image)
-            {
-                NationalImage::create([
-                    'bloodline_id' => $bloodline->id,
-                    'image' => $image,
-                ]);
-            }
+        foreach($fileNames as $image)
+        {
+            NationalImage::create([
+                'bloodline_id' => $bloodline->id,
+                'image' => $image,
+            ]);
         }
 
         return back();
@@ -98,27 +96,24 @@ class NationalBloodlineController extends Controller
         $bloodline = NationalBloodline::findOrFail($id);
 
         $bloodline->fill($request->except('file'));
+        $bloodline->save();
 
-        if($request->hasFile('file')){
-            foreach($request->file('file') as $image)
-            {
-                $imageName = $bloodline->id.'_'.time().'.'.$image->extension();  
-            
-                $image->move(public_path('bloodlines'), $imageName);
+        foreach($request->file('file') as $image)
+        {
+            $imageName = $bloodline->id.'_'.time().'.'.$image->extension();  
+        
+            $image->move(public_path('bloodlines'), $imageName);
 
-                $fileNames[] = $imageName;
-            }
-
-            foreach($fileNames as $image)
-            {
-                NationalImage::create([
-                    'bloodline_id' => $bloodline->id,
-                    'image' => $image,
-                ]);
-            }
+            $fileNames[] = $imageName;
         }
 
-        $bloodline->save();
+        foreach($fileNames as $image)
+        {
+            NationalImage::create([
+                'bloodline_id' => $bloodline->id,
+                'image' => $image,
+            ]);
+        }
 
         return back();
     }
