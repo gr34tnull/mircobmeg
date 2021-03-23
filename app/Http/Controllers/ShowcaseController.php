@@ -14,7 +14,7 @@ class ShowcaseController extends Controller
      */
     public function index(Showcase $showcases)
     {
-        $showcases = $showcases->all();
+        $showcases = $showcases->orderBy('created_at', 'desc')->get();
         return view('showcases.index',compact('showcases'));
     }
 
