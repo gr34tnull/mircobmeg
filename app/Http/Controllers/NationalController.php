@@ -64,7 +64,7 @@ class NationalController extends Controller
             
             $national->save();
         }
-        return back();
+        return redirect('/nationals');
     }
 
     /**
@@ -127,6 +127,6 @@ class NationalController extends Controller
     public function destroy(National $national)
     {
         $national->delete();
-        return back();
+        return redirect('/nationals');
     }
 }

@@ -82,6 +82,6 @@ class ProductCommentController extends Controller
     public function destroy($id)
     {
         ProductComment::findOrFail($id)->destroy($id);
-        return back();
+        return redirect('/products');
     }
 }

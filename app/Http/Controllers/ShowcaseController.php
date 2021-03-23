@@ -60,7 +60,7 @@ class ShowcaseController extends Controller
             
             $showcase->save();
         }
-        return back();
+        return redirect('/showcases');
     }
 
     /**
@@ -102,7 +102,7 @@ class ShowcaseController extends Controller
 
         $showcase->save();
 
-        return redirect('/showcases');;
+        return redirect('/showcases');
     }
 
     /**
@@ -114,6 +114,6 @@ class ShowcaseController extends Controller
     public function destroy(Showcase $showcase)
     {
         $showcase->delete();
-        return back();
+        return redirect('/showcases');
     }
 }
