@@ -43,8 +43,8 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="text-sm text-white underline hover:text-yellow-300" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                <a href="{{ route('login')}}"class="inline-flex items-center px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-gray-900 border border-transparent rounded-md hover:text-gray-900 hover:bg-yellow-300 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25">
+                    {{ __('Login') }}
                 </a>
 
                 <x-jet-button class="ml-4">

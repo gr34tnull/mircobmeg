@@ -21,7 +21,7 @@ class ShowcaseController extends Controller
     public function guests(Showcase $showcases)
     {
         $feature = $showcases->where('archive',false)->orderBy('created_at', 'desc')->first();
-        $showcases = $showcases->where('archive',false)->orderBy('created_at', 'desc')->simplePaginate(6);
+        $showcases = $showcases->where('archive',false)->orderBy('created_at', 'desc')->get();
         return view('guests.showcases',compact('feature','showcases'));
     }
 
@@ -71,9 +71,9 @@ class ShowcaseController extends Controller
      */
     public function show($id,Showcase $showcases)
     {
-        $feature = Showcase::findOrfail($id);
-        $showcases = $showcases->orderBy('created_at', 'desc')->simplePaginate(6);
-        return view('showcases.show',compact('feature','showcases'));
+        // $feature = Showcase::findOrfail($id);
+        // $showcases = $showcases->orderBy('created_at', 'desc')->simplePaginate(6);
+        // return view('showcases.show',compact('feature','showcases'));
     }
 
     /**
