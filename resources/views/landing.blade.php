@@ -5,8 +5,8 @@
             <img src="{{asset('home.png')}}" class="w-screen h-screen bg-cover" usemap="#image-map">
             <map name="image-map" class="block xl:hidden">
                 <area class="cursor-pointer focus:outline-none" href="{{route('liveshow')}}" coords="642,249,810,333" shape="rect">
-                <area class="cursor-pointer focus:outline-none" href="{{route('dashboard')}}" coords="360,350,1065,601" shape="rect">
-                <area class="cursor-pointer focus:outline-none" coords="1,372,74,365,322,384,318,668,168,711,3,712" shape="poly">
+                <area class="cursor-pointer focus:outline-none" href="{{route('products.guests')}}" coords="360,350,1065,601" shape="rect">
+                <area class="cursor-pointer focus:outline-none" href="{{route('regionals.guests')}}" coords="1,372,74,365,322,384,318,668,168,711,3,712" shape="poly">
                 <area class="cursor-pointer focus:outline-none" href="{{route('nationals.guests')}}" coords="1438,360,1087,397,1085,630,1277,707,1437,708" shape="poly">
             </map> 
         </div>
