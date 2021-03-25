@@ -18,6 +18,11 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function() {
+
+    Route::get('/live', function () {
+        return view('live');
+    })->name('liveshow');
+
     Route::resources([
         'users' => 'App\Http\Controllers\UserController',
         'nationals' => 'App\Http\Controllers\NationalController',

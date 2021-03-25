@@ -8,8 +8,6 @@
         </div>
     </div>
     @else
-    <div class="absolute z-10 hidden w-screen h-screen bg-cover lg:block prohide-p" style="background-image: url({{asset('home.png')}})">
-        
-    </div>
+        @include('landing')
     @endif
 </x-app-layout>
