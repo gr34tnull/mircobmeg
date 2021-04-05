@@ -188,21 +188,14 @@
                                                             </dt>
                                                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                                                 <select id="category" name="category" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
-                                                                    <option id="category" name="category" value="1" {{ $product->category == 1 ? 'selected' : '' }}>Feeds</option>
-                                                                    <option id="category" name="category" value="2" {{ $product->category == 2 ? 'selected' : '' }}>Disinfectant</option>
-                                                                    <option id="category" name="category" value="3" {{ $product->category == 3 ? 'selected' : '' }}>Supplement</option>
-                                                                    <option id="category" name="category" value="4" {{ $product->category == 4 ? 'selected' : '' }}>Shampoo</option>
-                                                                    <option id="category" name="category" value="5" {{ $product->category == 5 ? 'selected' : '' }}>Antibiotics</option>
-                                                                    <option id="category" name="category" value="6" {{ $product->category == 6 ? 'selected' : '' }}>Bundles</option>
+                                                                    <option id="category" name="category" value="1" {{ $product->category == 1 ? 'selected' : '' }}>Disinfectant</option>
+                                                                    <option id="category" name="category" value="2" {{ $product->category == 2 ? 'selected' : '' }}>Pointing Supplement</option>
+                                                                    <option id="category" name="category" value="3" {{ $product->category == 3 ? 'selected' : '' }}>Shampoo</option>
+                                                                    <option id="category" name="category" value="4" {{ $product->category == 4 ? 'selected' : '' }}>Specialty Feeds</option>
+                                                                    <option id="category" name="category" value="5" {{ $product->category == 5 ? 'selected' : '' }}>Supplement</option>
+                                                                    <option id="category" name="category" value="6" {{ $product->category == 6 ? 'selected' : '' }}>Antibiotics</option>
+                                                                    <option id="category" name="category" value="7" {{ $product->category == 7 ? 'selected' : '' }}>Bundles</option>
                                                                 </select>
-                                                            </dd>
-                                                        </div>
-                                                        <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                                            <dt class="mt-3 text-sm font-medium text-gray-500">
-                                                            Link
-                                                            </dt>
-                                                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                                                <x-jet-input id="link" class="block w-full" type="text" name="link" value="{{$product->link}}" autofocus />
                                                             </dd>
                                                         </div>
                                                         <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -388,21 +381,14 @@
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             <select id="category" name="category" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
-                                <option id="category" name="category" value="1">Feeds</option>
-                                <option id="category" name="category" value="2">Disinfectant</option>
-                                <option id="category" name="category" value="3">Supplement</option>
-                                <option id="category" name="category" value="4">Shampoo</option>
-                                <option id="category" name="category" value="5">Antibiotics</option>
-                                <option id="category" name="category" value="6">Bundles</option>
+                                <option id="category" name="category" value="1">Disinfectant</option>
+                                <option id="category" name="category" value="2">Pointing Supplement</option>
+                                <option id="category" name="category" value="3">Shampoo</option>
+                                <option id="category" name="category" value="4">Specialty Feeds</option>
+                                <option id="category" name="category" value="5">Supplement</option>
+                                <option id="category" name="category" value="6">Antibiotics</option>
+                                <option id="category" name="category" value="7">Bundles</option>
                             </select>
-                        </dd>
-                    </div>
-                    <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="mt-3 text-sm font-medium text-gray-500">
-                        Link
-                        </dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <x-jet-input id="link" class="block w-full" type="text" name="link" autofocus />
                         </dd>
                     </div>
                     <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

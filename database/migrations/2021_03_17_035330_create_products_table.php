@@ -21,7 +21,6 @@ class CreateProductsTable extends Migration
             $table->text('usage')->nullable();
             $table->integer('category')->default(1);
             $table->text('image')->nullable();
-            $table->string('link')->nullable();
             $table->string('shopee')->nullable();
             $table->string('lazada')->nullable();
             $table->timestamps();

@@ -51,11 +51,11 @@
                                 <div class="p-2 overflow-y-auto border-t border-b border-white border-dashed no-scrollbar h-96">
 
                                 @foreach($national->bloodlines as $bloodline)
-                                <div id="bloodline{{$bloodline->id}}" class="grid grid-cols-1 gap-4 p-6 md:grid-cols-3 lg:grid-cols-3 {{$bloodline->id == $national->bloodlines->first()->id ? 'block' : 'hidden' }}">
+                                <div id="bloodline{{$bloodline->id}}" class="grid grid-cols-1 gap-2 p-6 md:grid-cols-3 lg:grid-cols-4 {{$bloodline->id == $national->bloodlines->first()->id ? 'block' : 'hidden' }}">
                                     @foreach(App\Models\NationalImage::where('bloodline_id',$bloodline->id)->get() as $image)
                                     <div class="w-full text-center">
                                         <button type="button" onclick="toggleElement('imageZoom{{$image->id}}')">
-                                            <img class="block object-center w-full h-40 transform focus:outline-none hover:scale-105" src="{{asset('/bloodlines/'.$image->image)}}">
+                                            <img class="block object-center w-40 h-40 transform rounded focus:outline-none hover:scale-105" src="{{asset('/bloodlines/'.$image->image)}}">
                                         </button>
                                     </div>
                                     <div id="imageZoom{{$image->id}}" class="fixed inset-0 z-10 hidden overflow-y-auto">
@@ -70,9 +70,9 @@
                                             <div class="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                                             <div class="bg-white">
                                                 <div class="flex items-center justify-center">
-                                                    <div class="mt-3 text-center">
+                                                    <div class="p-4 mt-3 text-center">
                                                         <p class="py-2 text-xl font-extrabold text-center text-gray-900 uppercase">{{$image->bloodline->title}}</p>
-                                                        <img class="my-2 border border-gray-900 w-96 h-96" src="{{asset('/bloodlines/'.$image->image)}}">
+                                                        <img class="my-2 border border-gray-900 rounded w-96 h-96" src="{{asset('/bloodlines/'.$image->image)}}">
                                                         <small class="py-4 text-sm text-center uppercase">{{$image->bloodline->description}}</small>
                                                     </div>
                                                 </div>
@@ -94,15 +94,34 @@
                             </div>
 
                             <div id="videos" class="hidden p-2 overflow-y-auto bg-blue-900 h-96 no-scrollbar">
-                                <div class="grid grid-cols-1 gap-6 p-2 md:grid-cols-3 lg:grid-cols-3">
-                                    @foreach($national->videos as $video)
-                                    <div class="w-full text-center">
-                                        <video class="border-gray-900 border-1" controls>
-                                            <source src="{{asset('videos/'.$video->video)}}" type="video/mp4">
-                                        </video>
-                                        <small class="py-2 font-extrabold text-white uppercase text-md">{{$video->title}}</small>
+                                <div class="flex flex-row p-2 space-x-2 overflow-x-auto no-scrollbar">
+                                    <button id="vtn1" class="p-2 text-xs text-white bg-red-900 focus:outline-none hover:text-yellow-300 font-futura" onclick="showVid('vidtype1')">GAMEFARM</button>
+                                    <button id="vtn2" class="p-2 text-xs text-white bg-red-900 focus:outline-none hover:text-yellow-300 font-futura" onclick="showVid('vidtype2')">SABONGMATCH</button>
+                                </div>
+                                <div class="p-2 overflow-y-auto border-t border-b border-white border-dashed no-scrollbar h-96">
+                                <div id="vidtype1" class="block">
+                                    <div class="grid grid-cols-1 gap-6 p-2 md:grid-cols-3 lg:grid-cols-3">
+                                        @foreach($national->videos->where('category',1) as $video)
+                                        <div class="w-full text-center">
+                                            <video class="border-gray-900 border-1" controls>
+                                                <source src="{{asset('videos/'.$video->video)}}" type="video/mp4">
+                                            </video>
+                                            <small class="py-2 font-extrabold text-white uppercase text-md">{{$video->title}}</small>
+                                        </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
+                                </div>
+                                <div id="vidtype2" class="hidden">
+                                    <div class="grid grid-cols-1 gap-6 p-2 md:grid-cols-3 lg:grid-cols-3">
+                                        @foreach($national->videos->where('category',2) as $video)
+                                        <div class="w-full text-center">
+                                            <video class="border-gray-900 border-1" controls>
+                                                <source src="{{asset('videos/'.$video->video)}}" type="video/mp4">
+                                            </video>
+                                            <small class="py-2 font-extrabold text-white uppercase text-md">{{$video->title}}</small>
+                                        </div>
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
 
@@ -121,6 +140,29 @@
 </div>
 
 <script>
+function showVid(collapseID) {
+    if(collapseID == 'vidtype1')
+    {
+        document.getElementById('vidtype1').classList.remove('hidden');
+        document.getElementById('vidtype1').classList.add('block');
+        document.getElementById('vidtype2').classList.remove('block');
+        document.getElementById('vidtype2').classList.add('hidden');
+        document.getElementById('vtn1').classList.remove('text-white');
+        document.getElementById('vtn1').classList.add('text-yellow-300','border-b-2','border-yellow-300');
+        document.getElementById('vtn2').classList.remove('text-yellow-300','border-b-2','border-yellow-300');
+        document.getElementById('vtn2').classList.add('text-white');
+    } else {
+        document.getElementById('vidtype2').classList.remove('hidden');
+        document.getElementById('vidtype2').classList.add('block');
+        document.getElementById('vidtype1').classList.remove('block');
+        document.getElementById('vidtype1').classList.add('hidden');
+        document.getElementById('vtn2').classList.remove('text-white');
+        document.getElementById('vtn2').classList.add('text-yellow-300','border-b-2','border-yellow-300');
+        document.getElementById('vtn1').classList.remove('text-yellow-300','border-b-2','border-yellow-300');
+        document.getElementById('vtn1').classList.add('text-white');
+    }
+}
+
 function showTab(collapseID) {
     var bloodlines = <?php echo json_encode($national->bloodlines); ?>;    
     bloodlines.forEach(hideBloodlines);
@@ -138,6 +180,7 @@ function showTab(collapseID) {
 
     document.getElementById('bloodline'.concat(collapseID)).classList.remove('hidden');
 }
+
 function openTab(collapseID) {
     if(collapseID == 'bloodlines')
     {

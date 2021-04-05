@@ -23,6 +23,10 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
         return view('live');
     })->name('liveshow');
 
+    Route::get('/gts', function () {
+        return view('gts');
+    });
+
     Route::resources([
         'users' => 'App\Http\Controllers\UserController',
         'nationals' => 'App\Http\Controllers\NationalController',

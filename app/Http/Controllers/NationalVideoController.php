@@ -42,6 +42,7 @@ class NationalVideoController extends Controller
         NationalVideo::create([
             'national_id' => $request->national_id,
             'title' => $request->title,
+            'category' => $request->category,
             'video' => $videoName,
         ]);
 

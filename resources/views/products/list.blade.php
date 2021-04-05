@@ -5,10 +5,10 @@
         <a href="{{ auth()->check() ? route('dashboard') : url('/') }}">
             <img src="{{asset('logo.png')}}" class="w-auto h-24 transform hover:scale-105">
         </a>
-        <h1 class="text-4xl text-red-900 uppercase font-futura stroke-white">{{$category == 1 ? 'FEEDS' : ($category == 2 ? 'DISINFECTANTS' : ($category == 3 ? 'SUPPLEMENTS' : ($category == 4 ? 'SHAMPOO' : ($category == 5 ? 'ANTIBIOTICS' : 'BUNDLES') ) ) )}}</h1>
+        <h1 class="text-4xl text-red-900 uppercase font-futura stroke-white">{{$categoryname}}</h1>
     </div>
 
-    <div class="grid grid-cols-1 gap-4 pt-2 mx-20 md:grid-cols-3 lg:xl:grid-cols-4 xl:grid-cols-5">
+    <div class="grid grid-cols-1 gap-4 pt-2 mx-20 md:grid-cols-3 lg:xl:grid-cols-4 xl:grid-cols-4">
     
         @foreach($products as $product)
             <div class="w-full">

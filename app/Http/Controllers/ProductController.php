@@ -80,8 +80,9 @@ class ProductController extends Controller
 
     public function category($category)
     {
+        $categoryname = $category == 1 ? 'Disinfectant' : ($category == 2 ? 'Pointing Supplement' : ($category == 3 ? 'Shampoo' : ($category == 4 ? 'Specialty Feeds' : ($category == 5 ? 'Supplement' : ($category == 6 ? 'Antibiotics' : 'Bundles' ) ) ) ) );
         $products = Product::where('category', $category)->get();
-        return view('products.list', compact('category','products'));
+        return view('products.list', compact('category','categoryname','products'));
     }
 
     /**

@@ -17,6 +17,7 @@ class CreateNationalVideosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('national_id');
             $table->string('title');
+            $table->integer('category')->default(1);
             $table->text('video')->nullable();
             $table->timestamps();
             $table->foreign('national_id')->references('id')->on('nationals')->onDelete('cascade');

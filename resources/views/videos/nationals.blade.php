@@ -1,6 +1,6 @@
 <x-app-layout>
 <div class="flex items-center justify-center h-screen lg:mx-20">
-    <div class="w-full p-10 space-y-4 bg-white rounded-xl">
+    <div class="w-full p-10 space-y-4 overflow-y-auto bg-white rounded-xl h-96 no-scrollbar">
         <header class="flex items-center justify-between">
             <h2 class="text-lg font-medium leading-6 text-black">Videos of {{$national->fname.' '.$national->lname}}</h2>
         </header>
@@ -12,10 +12,9 @@
             </li>
             @foreach($videos as $video)
             <li>
-            <button class="flex items-center justify-center w-full p-4 border border-gray-200 rounded-lg hover:bg-blue-900 hover:text-white hover:border-transparent hover:shadow-lg group" onclick="toggleElement('videodelete{{$video->id}}')">
-                <div class="font-extrabold leading-6 text-black group-hover:text-white">
-                    {{$video->title}}
-                </div>
+            <button class="flex flex-col items-center justify-center w-full p-4 text-gray-900 border border-gray-200 rounded-lg hover:bg-blue-900 hover:text-white hover:border-transparent hover:shadow-lg" onclick="toggleElement('videodelete{{$video->id}}')">
+                <h1 class="text-lg font-extrabold leading-6 uppercase">{{$video->title}}</h1>
+                <p class="text-xs uppercase">{{$video->category == 1 ? 'Gamefarm' : 'Sabong Match'}} {{$video->created_at}}</p>
             </button>
             </li>
 
@@ -94,6 +93,17 @@
                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                         <input type="hidden" name="national_id" value="{{$national->id}}">
                         <x-jet-input id="title" class="block w-full" type="text" name="title" required autofocus />
+                    </dd>
+                </div>
+                <div class="px-4 py-2 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <dt class="mt-3 text-sm font-medium text-gray-500">
+                    Category
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        <select id="category" name="category" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
+                            <option id="category" name="category" value="1">Gamefarm</option>
+                            <option id="category" name="category" value="2">Sabong Match</option>
+                        </select>
                     </dd>
                 </div>
                 <div class="px-4 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
